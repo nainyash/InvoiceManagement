@@ -1,0 +1,14 @@
+<div class="row mt-3 ms-3">
+  <div class="col-md-4" *ngFor="let customer of customers">
+    <div class="card mb-4">
+      <div class="card-header bg-primary text-white text-center" style="padding: 2rem;">
+        <h5 class="card-title" style="font-size: calc(1rem + 2vw);">{{ customer.customerName }}</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><span class="fw-bold">Email:</span> {{ customer.mail }}</p>
+        <p class="card-text"><span class="fw-bold">Mobile:</span> {{ customer.mobile }}</p>
+        <p class="card-text"><span class="fw-bold">Password:</span> {{ customer.password }}</p>
+      </div>
+    </div>
+  </div>
+</div>

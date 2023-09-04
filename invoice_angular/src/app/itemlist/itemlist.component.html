@@ -1,0 +1,10 @@
+<div class="row mt-3">
+  <div class="col-md-4 mb-3" *ngFor="let item of items">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title text-primary">{{ item.name }}</h5>
+        <p class="card-text">{{ item.itemprice  | currency : "INR" : "symbol-narrow" : "1.2-2"}}</p>
+      </div>
+    </div>
+  </div>
+</div>

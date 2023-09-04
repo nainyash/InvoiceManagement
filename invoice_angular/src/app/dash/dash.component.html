@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="container">
+    <div class="table-responsive mt-5">
+      <table class="table table-bordered table-striped mt-5">
+        <thead class="text-white table-dark">
+          <tr class="text-center">
+            <th scope="col">Invoice Number</th>
+            <th scope="col">Date</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Item Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Unit Price</th>
+            <th scope="col">Sub Total</th>
+            <th scope="col">GST</th>
+            <th scope="col">Tax Amount</th>
+            <th scope="col">Total Amount</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let inv of data">
+            <td>{{ inv.invoiceNumber }}</td>
+            <td>{{ inv.curDate }}</td>
+            <td>{{ inv.customerName }}</td>
+            <td>
+              <ul>
+                <li *ngFor="let item of inv.item">{{ item.itemName }}</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li *ngFor="let item of inv.item">{{ item.quantity }}</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li *ngFor="let item of inv.item">{{ item.price }}</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li *ngFor="let item of inv.item">{{ item.subtotal  | currency : "INR" : "symbol-narrow" : "1.2-2" }}  </li>
+              </ul>
+            </td>
+            <td>9%</td>
+            <td>
+              <ul>
+                <li *ngFor="let item of inv.item">{{ item.gstAmount  | currency : "INR" : "symbol-narrow" : "1.2-2" }}</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li *ngFor="let item of inv.item">{{ item.totalAmount  | currency : "INR" : "symbol-narrow" : "1.2-2"}}</li>
+              </ul>
+            </td>
+            <td>
+              <div class="d-flex justify-content-center">
+                <a
+                  [routerLink]="['/update', inv.id]"
+                  class="btn btn-danger btn-sm me-1"
+                  >Update</a
+                >
+                <button
+                  class="btn btn-danger btn-sm me-1"
+                  (click)="deleteInvoice(inv.id)"
+                >
+                  <i class="fa fa-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
